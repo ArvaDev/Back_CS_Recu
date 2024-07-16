@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const class_cont_1 = require("../controllers/class.cont");
+const classRt = (0, express_1.Router)();
+classRt.post('/classes', class_cont_1.createClass);
+classRt.delete('/classes/:uniqueID', class_cont_1.deleteClass);
+classRt.post('/classes/webhooks/:uniqueID', class_cont_1.addWebHook);
+classRt.get('/classes/:uniqueID', class_cont_1.getClass);
+classRt.get('/class/chat/:uniqueID', class_cont_1.getClassChat);
+classRt.get('/class/users/:uniqueID', class_cont_1.getUserByClass);
+classRt.put('/classes/:uniqueID', class_cont_1.putClassUserID);
+exports.default = classRt;
